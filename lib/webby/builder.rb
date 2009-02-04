@@ -42,13 +42,13 @@ class Builder
 
       if tmpl.pathmap('%n') =~ %r/^_/
         page = ::File.join(::Webby.site.content_dir, dir, '_'+name)
-        page << '.' << (ext.empty? ? 'txt' : ext)
+        page << '.' << (ext.empty? ? Webby.site.default_ext : ext)
       elsif ::Webby.site.create_mode == 'directory' and name != 'index'
         page = ::File.join(::Webby.site.content_dir, dir, name, 'index')
-        page << '.' << (ext.empty? ? 'txt' : ext)
+        page << '.' << (ext.empty? ? Webby.site.default_ext : ext)
       else
         page = ::File.join(::Webby.site.content_dir, page)
-        page << '.txt' if ext.empty?
+        page << Webby.site.default_ext if ext.empty?
       end
       raise Error, "#{page} already exists" if test ?e, page
 

@@ -41,6 +41,7 @@ module Webby
       :create_mode   => 'page',
       :blog_dir      => 'blog',
       :tumblog_dir   => 'tumblog',
+      :default_ext   => 'txt',
 
       # Items for running the embedded webserver
       :use_web_server => true,
