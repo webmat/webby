@@ -48,7 +48,7 @@ class Builder
         page << '.' << (ext.empty? ? Webby.site.default_ext : ext)
       else
         page = ::File.join(::Webby.site.content_dir, page)
-        page << Webby.site.default_ext if ext.empty?
+        page << '.' << Webby.site.default_ext if ext.empty?
       end
       raise Error, "#{page} already exists" if test ?e, page
 
